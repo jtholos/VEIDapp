@@ -1,4 +1,4 @@
-  name: Generate sitemap.xml
+  - name: Generate sitemap.xml
     env:
       BASE_URL: "https://jtholos.github.io/VEIDapp"
     run: |
@@ -6,7 +6,6 @@
       OUTFILE="sitemap.xml"
       printf '%s\n' '<?xml version="1.0" encoding="UTF-8"?>' > "$OUTFILE"
       printf '%s\n' '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> "$OUTFILE"
-
       find . -type f -name '*.html' -not -path './.git/*' -print0 | while IFS= read -r -d '' f; do
         clean=${f#./}
         [ "$clean" = "sitemap.xml" ] && continue
@@ -20,7 +19,6 @@
         lastmod=$(git log -1 --format=%cI -- "$f" 2>/dev/null || date -I)
         printf '  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n  </url>\n' "$full" "$lastmod" >> "$OUTFILE"
       done
-
       printf '%s\n' '</urlset>' >> "$OUTFILE"
       echo "Generated $OUTFILE"
 
@@ -28,6 +26,13 @@
     run: |
       git config user.name "github-actions[bot]"
       git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
       if [ ! -f robots.txt ]; then
-        cat > robots.txt <<'EOF'
+        printf '%s\n' "User-agent: *" "Allow: /" "" "Sitemap: https://jtholos.github.io/VEIDapp/sitemap.xml" > robots.txt
+      fi
+      git add sitemap.xml robots.txt || true
+      if git diff --staged --quiet; then
+        echo "No changes to commit"
+      else
+        git commit -m "Auto-generate sitemap.xml and robots.txt"
+        git push origin gh-pages
+      fi
