@@ -149,6 +149,36 @@ h1{
 }
 .stat span{font-size:0.74rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink-soft)}
 
+.service-preview{
+  background:var(--white);
+  border:1.5px solid var(--line);
+  border-radius:var(--r-lg);
+  padding:18px 20px;
+  box-shadow:0 14px 32px -20px rgba(30,45,29,0.22);
+}
+.service-preview .sp-label{
+  font-family:var(--body);
+  font-size:0.72rem;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--green);
+  margin:0 0 12px;
+}
+.sp-row{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center}
+.sp-thumb{
+  width:44px;height:44px;border-radius:10px;
+  background:var(--green-tint);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;
+}
+.sp-info p{margin:0}
+.sp-reg{font-family:var(--mono);font-size:0.72rem;color:var(--green-dark);font-weight:600;margin-bottom:2px !important}
+.sp-title{font-family:var(--display);font-weight:700;font-size:1rem;color:var(--green-deep);margin-bottom:4px !important}
+.sp-service{font-size:0.84rem;color:var(--ink-soft)}
+.sp-due{color:var(--amber);font-weight:600}
+.sp-arrow{font-size:1.4rem;color:var(--ink-soft);opacity:0.6}
+
 .readout{
   background:var(--white);
   border:1.5px solid var(--line);
