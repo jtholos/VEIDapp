@@ -179,7 +179,17 @@ home_body = f'''
     <div>
       <p class="eyebrow">Feilsøking · Servicelogg · Vedlikehold</p>
       <h1>Finn feilkoden. Skjønn symptomet. Fiks det riktig.</h1>
-      <p class="lead">VEIDapp samler ekte feilrapporter fra traktorer, maskiner og kjøretøy i Norge — feilkoder, symptomer og faktiske løsninger andre har brukt. Denne siden viser et utvalg av databasen. Full løsning finner du i appen.</p>
+      <p class="lead">VEIDapp er et digitalt verktøy for deg som vil ha full kontroll på kjøretøyene dine – enten det er traktor, bil eller anleggsmaskin.
+
+
+I appen kan du:
+
+Dokumentere feil med beskrivelser, bilder og løsninger. Samtidig bidrar du til fellesskapet. Jo flere som deler sine erfaringer, desto mer verdifull og nyttig blir databasen for alle.
+
+Appen gir deg muligheten til å søke i fellesskapets feildatabase og lære av andres erfaringer og feilrettinger.
+
+Du kan også loggføre service og reparasjoner.
+Dette kan enkelt følge kjøretøyene videre til nye eiere og forblir kjøretøyets historikk!</p>
       <div class="hero-actions">
         <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv VEIDapp gratis</a>
         <a class="btn-ghost" style="color:var(--ink);border-color:var(--line)" href="#merker">Bla i merker</a>
