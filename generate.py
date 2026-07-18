@@ -210,8 +210,21 @@ Dette kan enkelt følge kjøretøyene videre til nye eiere og forblir kjøretøy
         <div class="stat"><b>{TOTAL_MODELS}+</b><span>Modeller</span></div>
       </div>
     </div>
-    <div>
-      <div class="readout">
+   <div>
+      <div class="service-preview">
+        <p class="sp-label">Eksempel · Servicevarsel</p>
+        <div class="sp-row">
+          <div class="sp-thumb">🚜</div>
+          <div class="sp-info">
+            <p class="sp-reg">VN141 · fiktivt eksempel</p>
+            <p class="sp-title">2019 Valtra N141</p>
+            <p class="sp-service">Forrige service: 14. mars 2026</p>
+            <p class="sp-service sp-due">Neste service innen: 15. september 2026</p>
+          </div>
+          <div class="sp-arrow">›</div>
+        </div>
+      </div>
+      <div class="readout" style="margin-top:14px">
         <p class="rlabel">Eksempel · {esc(example['brand'])} {esc(example['model'])}</p>
         <p class="rcode">{esc(example['feilkode']) or '—'}</p>
         <p class="rsymptom">{esc(example['symptom_display'])}</p>
