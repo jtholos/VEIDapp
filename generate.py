@@ -242,7 +242,7 @@ Dette kan enkelt følge kjøretøyene videre til nye eiere og forblir kjøretøy
   <div class="wrap">
     <div class="section-head"><h2>Slik fungerer det</h2></div>
     <div class="steps">
-      <div class="step"><div class="num">01</div><h3>Søk feilkode eller symptom</h3><p>Finn kjøretøyet, maskinen eller feilkoden du sliter med — på tvers av bil, traktor, skurtresker og anleggsu[...]
+      <div class="step"><div class="num">01</div><h3>Søk feilkode eller symptom</h3><p>Finn kjøretøyet, maskinen eller feilkoden du sliter med — på tvers av bil, traktor, skurtresker og anleggsutstyr.</p></div>
       <div class="step"><div class="num">02</div><h3>Se hva andre har opplevd</h3><p>Sammenlign symptomer og feiltyper andre brukere har registrert på samme merke og modell.</p></div>
       <div class="step"><div class="num">03</div><h3>Full servicehistorikk</h3><p>Loggfør servicer og få påminnelser - gratis i VEIDapp — bygget av og for de som faktisk skrur.</p></div>
     </div>
