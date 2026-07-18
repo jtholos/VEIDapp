@@ -114,7 +114,7 @@ def header(depth=0):
     <nav>
       <a href="{p}index.html">Bla i merker</a>
       <a href="{p}index.html#slik-fungerer-det">Slik fungerer det</a>
-      <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv appen gratis</a>
+      <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv appen GRATIS</a>
     </nav>
   </div>
 </header>'''
@@ -178,20 +178,21 @@ home_body = f'''
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow">Feilsøking · Servicelogg · Vedlikehold</p>
-      <h1>Finn feilkoden. Skjønn symptomet. Fiks det riktig.</h1>
-      <p class="lead">VEIDapp er et digitalt verktøy for deg som vil ha full kontroll på kjøretøyene dine – enten det er traktor, bil eller anleggsmaskin.
-
+      <h1>Finn feilkoder. Søk i feilhistorikker. Full servicehistorikk. GRATIS!</h1>
+      <p class="lead">
 
 I appen kan du:
 
-Dokumentere feil med beskrivelser, bilder og løsninger. Samtidig bidrar du til fellesskapet. Jo flere som deler sine erfaringer, desto mer verdifull og nyttig blir databasen for alle.
-
+Dokumentere feil med beskrivelser, bilder og løsninger. Samtidig bidrar du til fellesskapet. 
 Appen gir deg muligheten til å søke i fellesskapets feildatabase og lære av andres erfaringer og feilrettinger.
-
 Du kan også loggføre service og reparasjoner.
 Dette kan enkelt følge kjøretøyene videre til nye eiere og forblir kjøretøyets historikk!</p>
+
+<p>VEIDapp er GRATIS og frivillig, og blir bedre for hver feil som deles. Logg service, følg historikk og finn løsninger raskere 
+— for kjøretøy, maskiner, bygg og utstyr.</p>
+    
       <div class="hero-actions">
-        <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv VEIDapp gratis</a>
+        <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv VEIDapp GRATIS</a>
         <a class="btn-ghost" style="color:var(--ink);border-color:var(--line)" href="#merker">Bla i merker</a>
       </div>
       <div class="stat-row">
@@ -247,7 +248,7 @@ Dette kan enkelt følge kjøretøyene videre til nye eiere og forblir kjøretøy
     <div class="steps">
       <div class="step"><div class="num">01</div><h3>Søk feilkode eller symptom</h3><p>Finn kjøretøyet, maskinen eller feilkoden du sliter med — på tvers av bil, traktor, skurtresker og anleggsutstyr.</p></div>
       <div class="step"><div class="num">02</div><h3>Se hva andre har opplevd</h3><p>Sammenlign symptomer og feiltyper andre brukere har registrert på samme merke og modell.</p></div>
-      <div class="step"><div class="num">03</div><h3>Lås opp løsningen i appen</h3><p>Full løsning, servicelogg og påminnelser er gratis i VEIDapp — bygget av og for de som faktisk skrur.</p></div>
+      <div class="step"><div class="num">03</div><h3>Full servicehistorikk</h3><p>Loggfør servicer og få påminnelser - gratis i VEIDapp — bygget av og for de som faktisk skrur.</p></div>
     </div>
   </div>
 </section>
@@ -255,7 +256,7 @@ Dette kan enkelt følge kjøretøyene videre til nye eiere og forblir kjøretøy
 <section class="cta-band">
   <div class="wrap">
     <h2>Bygg Norges beste feilsøkingsdatabase — sammen med oss</h2>
-    <p>VEIDapp er gratis og frivillig, og blir bedre for hver feil som deles. Logg service, følg historikk og finn løsninger raskere — for kjøretøy, maskiner, bygg og utstyr.</p>
+    <p>VEIDapp er GRATIS og frivillig, og blir bedre for hver feil som deles. Logg service, følg historikk og finn løsninger raskere — for kjøretøy, maskiner, bygg og utstyr.</p>
     <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv VEIDapp gratis →</a>
   </div>
 </section>
