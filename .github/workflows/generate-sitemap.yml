@@ -1,4 +1,4 @@
-  - name: Generate sitemap.xml
+  name: Generate sitemap.xml
     env:
       BASE_URL: "https://jtholos.github.io/VEIDapp"
     run: |
