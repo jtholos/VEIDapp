@@ -1,87 +1,33 @@
-# Generate sitemap.xml from all .html files and commit to gh-pages
-name: Generate sitemap and commit to gh-pages
+  - name: Generate sitemap.xml
+    env:
+      BASE_URL: "https://jtholos.github.io/VEIDapp"
+    run: |
+      set -euo pipefail
+      OUTFILE="sitemap.xml"
+      printf '%s\n' '<?xml version="1.0" encoding="UTF-8"?>' > "$OUTFILE"
+      printf '%s\n' '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> "$OUTFILE"
 
-on:
-  workflow_dispatch: {}
-  push:
-    branches:
-      - gh-pages
+      find . -type f -name '*.html' -not -path './.git/*' -print0 | while IFS= read -r -d '' f; do
+        clean=${f#./}
+        [ "$clean" = "sitemap.xml" ] && continue
+        [ "$clean" = "robots.txt" ] && continue
+        if [[ "$clean" =~ /index\.html$ ]]; then
+          urlpath="${clean%/index.html}/"
+        else
+          urlpath="$clean"
+        fi
+        full="${BASE_URL}/${urlpath}"
+        lastmod=$(git log -1 --format=%cI -- "$f" 2>/dev/null || date -I)
+        printf '  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n  </url>\n' "$full" "$lastmod" >> "$OUTFILE"
+      done
 
-jobs:
-  generate-sitemap:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      printf '%s\n' '</urlset>' >> "$OUTFILE"
+      echo "Generated $OUTFILE"
 
-      - name: Ensure gh-pages branch is checked out
-        run: |
-          set -e
-          git fetch origin gh-pages || true
-          if git rev-parse --verify gh-pages >/dev/null 2>&1; then
-            git checkout gh-pages
-          else
-            if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
-              git checkout -b gh-pages origin/gh-pages
-            else
-              git checkout -b gh-pages
-            fi
-          fi
+  - name: Ensure robots.txt and commit
+    run: |
+      git config user.name "github-actions[bot]"
+      git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Generate sitemap.xml
-        env:
-          BASE_URL: "https://jtholos.github.io/VEIDapp"
-        run: |
-          set -euo pipefail
-          OUTFILE="sitemap.xml"
-          echo '<?xml version="1.0" encoding="UTF-8"?>' > "$OUTFILE"
-          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> "$OUTFILE"
-
-          # Find all .html files (excluding .git) and build sitemap entries
-          find . -type f -name '*.html' -not -path './.git/*' -print0 | while IFS= read -r -d '' f; do
-            clean=${f#./}
-            # Skip sitemap.xml and robots.txt if present
-            if [[ "$clean" == "sitemap.xml" || "$clean" == "robots.txt" ]]; then
-              continue
-            fi
-            if [[ "$clean" =~ /index\.html$ ]]; then
-              urlpath="${clean%/index.html}/"
-            else
-              urlpath="$clean"
-            fi
-            full="${BASE_URL}/${urlpath}"
-            lastmod=$(git log -1 --format=%cI -- "$f" 2>/dev/null || date -I)
-            echo "  <url>" >> "$OUTFILE"
-            echo "    <loc>${full}</loc>" >> "$OUTFILE"
-            echo "    <lastmod>${lastmod}</lastmod>" >> "$OUTFILE"
-            echo "  </url>" >> "$OUTFILE"
-          done
-
-          echo '</urlset>' >> "$OUTFILE"
-          echo "Generated $OUTFILE"
-
-      - name: Add/commit sitemap and robots.txt
-        run: |
-          set -e
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          # Ensure robots.txt exists with Sitemap line
-          if [ ! -f robots.txt ]; then
-            cat > robots.txt <<EOF
-User-agent: *
-Allow: /
-
-Sitemap: https://jtholos.github.io/VEIDapp/sitemap.xml
-EOF
-          fi
-
-          git add sitemap.xml robots.txt || true
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "Auto-generate sitemap.xml and robots.txt"
-            git push origin gh-pages
-          fi
+      if [ ! -f robots.txt ]; then
+        cat > robots.txt <<'EOF'
