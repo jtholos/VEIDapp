@@ -1,2 +1,3 @@
-url: "https://jtholos.github.io/VEIDapp" plugins:
-jekyll-sitemap
+url: "https://jtholos.github.io/VEIDapp"
+plugins:
+  - jekyll-sitemap
