@@ -10,7 +10,7 @@ from collections import defaultdict, Counter
 
 CSV_PATH = os.environ.get("CSV_PATH", "data/feilrapporter.csv")
 OUT = os.environ.get("OUT_DIR", "public")
-BASE_URL = os.environ.get("BASE_URL", "https://jtholos.github.io/VEIDapp")   # <-- bytt til din faktiske URL, eller sett som repo-variabel BASE_URL i GitHub Actions
+BASE_URL = os.environ.get("BASE_URL", "https://about.veidapp.no")   # <-- bytt til din faktiske URL, eller sett som repo-variabel BASE_URL i GitHub Actions
 APP_URL = "https://www.veidapp.no/"
 
 os.makedirs(OUT, exist_ok=True)
