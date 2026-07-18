@@ -174,6 +174,15 @@ for b in brands_sorted:
     </a>'''
 
 home_body = f'''
+<section class="search-section">
+  <div class="wrap">
+    <div class="search-box">
+      <input id="search-input" type="text" placeholder="Søk f.eks. «Claas Arion», «Valtra startproblemer», «ID0251» …" autocomplete="off">
+      <div id="search-results"></div>
+    </div>
+  </div>
+</section>
+
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
@@ -217,19 +226,6 @@ Dette kan enkelt følge kjøretøyene videre til nye eiere og forblir kjøretøy
   </div>
 </section>
 
-<section class="section" id="sok">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Søk i databasen</h2>
-      <span class="note">{TOTAL} rapporter indeksert</span>
-    </div>
-    <div class="search-box">
-      <input id="search-input" type="text" placeholder="Søk f.eks. «Claas Arion», «Valtra startproblemer», «ID0251» …" autocomplete="off">
-      <div id="search-results"></div>
-    </div>
-  </div>
-</section>
-
 <section class="section" id="merker">
   <div class="wrap">
     <div class="section-head">
@@ -246,7 +242,7 @@ Dette kan enkelt følge kjøretøyene videre til nye eiere og forblir kjøretøy
   <div class="wrap">
     <div class="section-head"><h2>Slik fungerer det</h2></div>
     <div class="steps">
-      <div class="step"><div class="num">01</div><h3>Søk feilkode eller symptom</h3><p>Finn kjøretøyet, maskinen eller feilkoden du sliter med — på tvers av bil, traktor, skurtresker og anleggsutstyr.</p></div>
+      <div class="step"><div class="num">01</div><h3>Søk feilkode eller symptom</h3><p>Finn kjøretøyet, maskinen eller feilkoden du sliter med — på tvers av bil, traktor, skurtresker og anleggsu[...]
       <div class="step"><div class="num">02</div><h3>Se hva andre har opplevd</h3><p>Sammenlign symptomer og feiltyper andre brukere har registrert på samme merke og modell.</p></div>
       <div class="step"><div class="num">03</div><h3>Full servicehistorikk</h3><p>Loggfør servicer og få påminnelser - gratis i VEIDapp — bygget av og for de som faktisk skrur.</p></div>
     </div>
@@ -367,7 +363,7 @@ for e in entries:
     solution_len = len(e["losning"].split())
 
     related = [r for r in by_brand[e["brand"]] if r["slug"] != slug][:5]
-    related_html = "".join(f'<li><a href="{r["slug"]}.html">{esc(r["symptom_display"])}{" · " + esc(r["feilkode"]) if r["feilkode"] else ""}</a></li>' for r in related) or "<li>Ingen flere rapporter for dette merket ennå.</li>"
+    related_html = "".join(f'<li><a href="{r["slug"]}.html">{esc(r["symptom_display"])}{" · " + esc(r["feilkode"]) if r["feilkode"] else ""}</a></li>' for r in related) or "<li>Ingen flere rapporter [...]
 
     model_title = f"{esc(e['brand'])} {esc(e['model'])}" if e["model"] else esc(e['brand'])
 
@@ -404,7 +400,7 @@ for e in entries:
     <p class="glabel">Løsning</p>
     <div class="lock">🔒 Låst innhold</div>
     <p class="gblur">{esc(truncate_words(e['losning'], 18)) or 'Løsning registrert i VEIDapp av bruker som har fikset dette selv.'}</p>
-    <p class="gcta">{solution_len}+ ord med konkret løsning, deler/komponenter og fremgangsmåte er tilgjengelig gratis i VEIDapp — sammen med servicelogg og påminnelser for dette kjøretøyet.</p>
+    <p class="gcta">{solution_len}+ ord med konkret løsning, deler/komponenter og fremgangsmåte er tilgjengelig gratis i VEIDapp — sammen med servicelogg og påminnelser for dette kjøretøyet.</p[...]
     <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Se full løsning i VEIDapp</a>
   </aside>
 </div>
