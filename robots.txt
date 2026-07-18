@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jtholos.github.io/VEIDapp/sitemap.xml

@@ -1,0 +1,353 @@
+/* =========================================================
+   VEIDapp feilsøkingsdatabase — statisk nettsted
+   Designspråk: diagnoseverktøy / servicehåndbok
+   ========================================================= */
+
+:root{
+  --paper:      #EDEAE1;   /* manual-side bakgrunn */
+  --paper-dim:  #E2DDD0;
+  --ink:        #201F1D;   /* brødtekst */
+  --ink-soft:   #5B5750;
+  --panel:      #202426;   /* mørkt diagnose-panel */
+  --panel-2:    #2B3033;
+  --steel:      #4C6B78;   /* sekundær-aksent */
+  --steel-dim:  #33474F;
+  --amber:      #E8A23D;   /* skjerm-glød / CTA */
+  --amber-dim:  #B67B2A;
+  --oxide:      #A6402F;   /* feil / advarsel */
+  --line:       rgba(32,31,29,0.14);
+  --line-dark:  rgba(232,162,61,0.18);
+
+  --display: "Oswald", "Arial Narrow", sans-serif;
+  --body:    "IBM Plex Sans", system-ui, sans-serif;
+  --mono:    "IBM Plex Mono", "Consolas", monospace;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.55;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber); outline-offset:2px}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* ---------- header ---------- */
+.site-header{
+  background:var(--panel);
+  color:var(--paper);
+  border-bottom:3px solid var(--amber);
+  position:sticky; top:0; z-index:40;
+}
+.site-header .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:16px;padding-bottom:16px;
+  gap:16px;flex-wrap:wrap;
+}
+.logo{
+  font-family:var(--display);
+  font-weight:600;
+  font-size:1.5rem;
+  letter-spacing:0.06em;
+  text-decoration:none;
+  color:var(--paper);
+  display:flex;align-items:center;gap:10px;
+}
+.logo .dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--amber);
+  box-shadow:0 0 8px 2px rgba(232,162,61,0.7);
+  display:inline-block;
+}
+.site-header nav{display:flex;align-items:center;gap:22px;font-size:0.92rem}
+.site-header nav a{text-decoration:none;color:var(--paper);opacity:0.85}
+.site-header nav a:hover{opacity:1}
+.btn-cta{
+  background:var(--amber);
+  color:var(--panel) !important;
+  font-weight:600;
+  padding:10px 18px;
+  border-radius:3px;
+  text-decoration:none !important;
+  opacity:1 !important;
+  font-family:var(--body);
+  letter-spacing:0.01em;
+  transition:transform .12s ease, background .12s ease;
+  display:inline-block;
+}
+.btn-cta:hover{background:#f0b155; transform:translateY(-1px)}
+.btn-ghost{
+  border:1px solid rgba(237,234,225,0.35);
+  padding:9px 16px;border-radius:3px;text-decoration:none!important;
+  font-size:0.9rem;
+}
+
+/* ---------- breadcrumb ---------- */
+.crumbs{
+  font-family:var(--mono);
+  font-size:0.78rem;
+  color:var(--ink-soft);
+  padding:18px 0 0;
+  text-transform:uppercase;
+  letter-spacing:0.03em;
+}
+.crumbs a{text-decoration:none;border-bottom:1px dotted var(--ink-soft)}
+.crumbs .sep{margin:0 8px;opacity:0.5}
+
+/* ---------- hero ---------- */
+.hero{
+  padding:56px 0 48px;
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:48px;
+  align-items:center;
+}
+.eyebrow{
+  font-family:var(--mono);
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  font-size:0.78rem;
+  color:var(--oxide);
+  margin:0 0 14px;
+}
+h1{
+  font-family:var(--display);
+  font-weight:600;
+  font-size:2.6rem;
+  line-height:1.08;
+  letter-spacing:0.01em;
+  margin:0 0 18px;
+}
+.hero p.lead{
+  font-size:1.1rem;
+  color:var(--ink-soft);
+  max-width:46ch;
+  margin:0 0 26px;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.stat-row{display:flex;gap:28px;flex-wrap:wrap}
+.stat{font-family:var(--mono)}
+.stat b{
+  display:block;font-size:1.6rem;color:var(--panel);
+  font-family:var(--display);font-weight:600;
+}
+.stat span{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-soft)}
+
+/* ---------- diagnostic readout (signature element) ---------- */
+.readout{
+  background:var(--panel);
+  border:1px solid var(--steel-dim);
+  border-radius:6px;
+  padding:22px 24px;
+  position:relative;
+  box-shadow:0 18px 40px -18px rgba(0,0,0,0.45);
+}
+.readout::before{
+  content:"";
+  position:absolute; top:14px; right:16px;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--oxide);
+  box-shadow:0 0 6px 2px rgba(166,64,47,0.7);
+}
+.readout .rlabel{
+  font-family:var(--mono);
+  font-size:0.68rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--steel);
+  margin:0 0 10px;
+}
+.readout .rcode{
+  font-family:var(--mono);
+  font-size:1.7rem;
+  color:var(--amber);
+  text-shadow:0 0 12px rgba(232,162,61,0.45);
+  letter-spacing:0.03em;
+  margin:0 0 6px;
+  word-break:break-word;
+}
+.readout .rsymptom{
+  font-family:var(--body);
+  color:var(--paper);
+  font-size:0.98rem;
+  margin:0 0 16px;
+  opacity:0.92;
+}
+.readout .rmeta{
+  display:flex;gap:10px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:0.72rem;
+  color:var(--steel);
+}
+.rmeta span{
+  border:1px solid var(--steel-dim);
+  padding:3px 8px;border-radius:3px;
+}
+.readout .locked{
+  margin-top:16px;
+  border-top:1px dashed var(--line-dark);
+  padding-top:14px;
+  font-family:var(--mono);font-size:0.78rem;
+  color:var(--amber-dim);
+  display:flex;align-items:center;gap:8px;
+}
+
+/* ---------- section titles ---------- */
+.section{padding:56px 0;border-bottom:1px solid var(--line)}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:28px;flex-wrap:wrap}
+h2{
+  font-family:var(--display);font-weight:600;
+  font-size:1.7rem;margin:0;
+}
+.section-head .note{font-family:var(--mono);font-size:0.78rem;color:var(--ink-soft)}
+
+/* ---------- brand grid ---------- */
+.brand-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:14px;
+}
+.brand-card{
+  background:var(--paper-dim);
+  border:1px solid var(--line);
+  border-left:4px solid var(--steel);
+  padding:18px 18px;
+  text-decoration:none;
+  color:var(--ink);
+  display:block;
+  transition:border-color .12s ease, transform .12s ease;
+}
+.brand-card:hover{border-left-color:var(--oxide);transform:translateX(2px)}
+.brand-card .bname{
+  font-family:var(--display);font-weight:600;font-size:1.15rem;
+  margin:0 0 4px;
+}
+.brand-card .bcount{
+  font-family:var(--mono);font-size:0.78rem;color:var(--ink-soft);
+}
+
+/* ---------- how it works ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.step{border-top:3px solid var(--oxide);padding-top:14px}
+.step .num{font-family:var(--mono);color:var(--oxide);font-size:0.85rem}
+.step h3{font-family:var(--display);font-weight:600;font-size:1.15rem;margin:8px 0 8px}
+.step p{color:var(--ink-soft);margin:0;font-size:0.95rem}
+
+/* ---------- report list (brand pages) ---------- */
+.report-list{display:flex;flex-direction:column;gap:10px}
+.report-row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:14px;align-items:center;
+  background:var(--paper-dim);
+  border:1px solid var(--line);
+  padding:16px 18px;
+  text-decoration:none;color:var(--ink);
+}
+.report-row:hover{border-color:var(--steel)}
+.report-row .rtitle{font-weight:600;font-size:1rem;margin:0 0 4px}
+.report-row .rtags{font-family:var(--mono);font-size:0.72rem;color:var(--ink-soft)}
+.report-row .rcode-pill{
+  font-family:var(--mono);font-size:0.78rem;
+  background:var(--panel);color:var(--amber);
+  padding:5px 10px;border-radius:3px;white-space:nowrap;
+}
+.report-row .rarrow{font-family:var(--mono);color:var(--steel)}
+
+/* ---------- detail page ---------- */
+.detail-head{padding:26px 0 10px}
+.tagrow{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0}
+.tag{
+  font-family:var(--mono);font-size:0.72rem;
+  text-transform:uppercase;letter-spacing:0.04em;
+  border:1px solid var(--line);
+  padding:4px 10px;border-radius:3px;color:var(--ink-soft);
+}
+.detail-body{padding:20px 0 40px;display:grid;grid-template-columns:1.15fr 0.85fr;gap:40px}
+.context p{font-size:1.02rem}
+.context h3{font-family:var(--display);font-weight:600;font-size:1.1rem;margin:26px 0 10px}
+
+.gate{
+  background:var(--panel);
+  border:1px solid var(--steel-dim);
+  border-radius:6px;
+  padding:24px;
+  position:sticky; top:96px;
+}
+.gate .glabel{font-family:var(--mono);font-size:0.72rem;color:var(--steel);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 10px}
+.gate .gblur{
+  color:var(--paper);
+  font-size:0.95rem;
+  filter:blur(4.5px);
+  opacity:0.55;
+  user-select:none;
+  margin:0 0 18px;
+  line-height:1.5;
+}
+.gate .lock{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--amber);font-family:var(--mono);font-size:0.85rem;
+  margin-bottom:14px;
+}
+.gate p.gcta{color:var(--paper);opacity:0.85;font-size:0.92rem;margin:0 0 18px}
+.gate .btn-cta{width:100%;text-align:center}
+
+.related{margin-top:30px}
+.related h3{font-family:var(--display);font-weight:600;font-size:1.05rem;margin:0 0 12px}
+.related ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.related a{text-decoration:none;font-size:0.92rem;border-bottom:1px dotted var(--line)}
+
+/* ---------- search box (home) ---------- */
+.search-box{margin:26px 0}
+.search-box input{
+  width:100%;padding:14px 16px;
+  font-family:var(--mono);font-size:0.95rem;
+  border:1px solid var(--steel-dim);border-radius:4px;
+  background:var(--panel);color:var(--paper);
+}
+.search-box input::placeholder{color:rgba(237,234,225,0.45)}
+#search-results{margin-top:14px;display:flex;flex-direction:column;gap:8px;max-height:340px;overflow:auto}
+#search-results a{
+  display:block;padding:10px 14px;background:var(--paper-dim);
+  border:1px solid var(--line);text-decoration:none;color:var(--ink);font-size:0.92rem;
+}
+#search-results .empty{font-family:var(--mono);font-size:0.82rem;color:var(--ink-soft)}
+
+/* ---------- cta band ---------- */
+.cta-band{
+  background:var(--panel);color:var(--paper);
+  padding:52px 0;text-align:center;
+}
+.cta-band h2{color:var(--paper)}
+.cta-band p{color:rgba(237,234,225,0.75);max-width:56ch;margin:14px auto 26px}
+
+/* ---------- footer ---------- */
+.site-footer{padding:34px 0;font-size:0.85rem;color:var(--ink-soft)}
+.site-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.site-footer a{color:var(--ink-soft);text-decoration:underline}
+
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .detail-body{grid-template-columns:1fr}
+  .gate{position:static}
+  .steps{grid-template-columns:1fr}
+  h1{font-size:2.05rem}
+}
+@media (max-width:520px){
+  .report-row{grid-template-columns:1fr}
+  .site-header nav{display:none}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important; scroll-behavior:auto !important}
+}
