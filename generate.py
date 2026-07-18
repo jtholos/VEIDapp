@@ -363,7 +363,18 @@ for e in entries:
     solution_len = len(e["losning"].split())
 
     related = [r for r in by_brand[e["brand"]] if r["slug"] != slug][:5]
-    related_html = "".join(f'<li><a href="{r["slug"]}.html">{esc(r["symptom_display"])}{" · " + esc(r["feilkode"]) if r["feilkode"] else ""}</a></li>' for r in related) or "<li>Ingen flere rapporter [...]
+    if related:
+        related_items = []
+        for r in related:
+            code_bit = ""
+            if r["feilkode"]:
+                code_bit = " · " + esc(r["feilkode"])
+            related_items.append(
+                '<li><a href="' + r["slug"] + '.html">' + esc(r["symptom_display"]) + code_bit + '</a></li>'
+            )
+        related_html = "".join(related_items)
+    else:
+        related_html = "<li>Ingen flere rapporter for dette merket ennå.</li>"
 
     model_title = f"{esc(e['brand'])} {esc(e['model'])}" if e["model"] else esc(e['brand'])
 
