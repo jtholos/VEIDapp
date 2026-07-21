@@ -110,11 +110,11 @@ def header(depth=0):
     p = "../" * depth
     return f'''<header class="site-header">
   <div class="wrap">
-    <a class="logo" href="{p}index.html"><span class="badge">🔧</span>VEID<span style="color:var(--green)">app</span> · Feilkodedatabase</a>
+    <a class="logo" href="{p}index.html"><span class="badge">🔧</span>VEIDapp · Servicebok og feildatabase</a>
     <nav>
       <a href="{p}index.html">Bla i merker</a>
       <a href="{p}index.html#slik-fungerer-det">Slik fungerer det</a>
-      <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv appen GRATIS</a>
+      <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv appen!</a>
     </nav>
   </div>
 </header>'''
@@ -187,17 +187,10 @@ home_body = f'''
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow">Feilsøking · Servicelogg · Vedlikehold</p>
-      <h1>Finn feilkoder. Søk i feilhistorikker. Full servicehistorikk. GRATIS!</h1>
+      <h1>Finn feilkoder. Søk i feilhistorikker. Digital servicebok.</h1>
       <p class="lead">
 
-I appen kan du:
-
-Dokumentere feil med beskrivelser, bilder og løsninger. Samtidig bidrar du til fellesskapet. 
-Appen gir deg muligheten til å søke i fellesskapets feildatabase og lære av andres erfaringer og feilrettinger.
-Du kan også loggføre service og reparasjoner.
-Dette kan enkelt følge kjøretøyene videre til nye eiere og forblir kjøretøyets historikk!</p>
-
-<p>VEIDapp er GRATIS og frivillig, og blir bedre for hver feil som deles. Logg service, følg historikk og finn løsninger raskere 
+<p>VEIDapp er en frivillig drevet tjeneste, som blir bedre for hver feil som deles. Logg service, følg historikk og finn løsninger raskere 
 — for kjøretøy, maskiner, bygg og utstyr.</p>
     
       <div class="hero-actions">
@@ -239,6 +232,17 @@ Dette kan enkelt følge kjøretøyene videre til nye eiere og forblir kjøretøy
   </div>
 </section>
 
+<section class="section" id="slik-fungerer-det">
+  <div class="wrap">
+    <div class="section-head"><h2>Slik fungerer det</h2></div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h3>Søk feilkode eller symptom</h3><p>Finn kjøretøyet, maskinen eller feilkoden du sliter med — på tvers av bil, traktor, skurtresker og anleggsutstyr.</p></div>
+      <div class="step"><div class="num">02</div><h3>Se hva andre har opplevd</h3><p>Sammenlign symptomer og feiltyper andre brukere har registrert på samme merke og modell.</p></div>
+      <div class="step"><div class="num">03</div><h3>Full servicehistorikk</h3><p>Loggfør servicer og få påminnelser - gratis i VEIDapp — bygget av og for de som faktisk skrur.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="merker">
   <div class="wrap">
     <div class="section-head">
@@ -247,17 +251,6 @@ Dette kan enkelt følge kjøretøyene videre til nye eiere og forblir kjøretøy
     </div>
     <div class="brand-grid">
       {brand_cards}
-    </div>
-  </div>
-</section>
-
-<section class="section" id="slik-fungerer-det">
-  <div class="wrap">
-    <div class="section-head"><h2>Slik fungerer det</h2></div>
-    <div class="steps">
-      <div class="step"><div class="num">01</div><h3>Søk feilkode eller symptom</h3><p>Finn kjøretøyet, maskinen eller feilkoden du sliter med — på tvers av bil, traktor, skurtresker og anleggsutstyr.</p></div>
-      <div class="step"><div class="num">02</div><h3>Se hva andre har opplevd</h3><p>Sammenlign symptomer og feiltyper andre brukere har registrert på samme merke og modell.</p></div>
-      <div class="step"><div class="num">03</div><h3>Full servicehistorikk</h3><p>Loggfør servicer og få påminnelser - gratis i VEIDapp — bygget av og for de som faktisk skrur.</p></div>
     </div>
   </div>
 </section>
