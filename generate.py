@@ -115,7 +115,7 @@ def header(depth=0):
    
    <!-- <span class="badge">🔧</span> -->
    
-   <img src="{p}images/Logo.png" alt="Logo">
+   <img src="/images/Logo.png" alt="Logo">
       VEIDapp · Servicebok og feildatabase
       
    </a>
@@ -254,10 +254,10 @@ home_body = f'''
   </div>
 </section>
 
-<section claas="demo" id="demo">
-<img src="{p}images/Layout.png" alt="Layout">
-<img src="{p}images/Vehicle.png" alt="Kjøretøykort">
-<img src="{p}images/Feilrapport.png" alt="Feilrapport">
+<section class="demo" id="demo">
+<img src="/images/Layout.png" alt="Layout">
+<img src="/images/Vehicle.png" alt="Kjøretøykort">
+<img src="/images/Feilrapport.png" alt="Feilrapport">
 </section>
 
 <section class="section" id="merker">
