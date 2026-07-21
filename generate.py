@@ -191,6 +191,7 @@ for b in brands_sorted:
 home_body = f'''
 <section class="search-section">
   <div class="wrap">
+  <h1>Søk etter feil her!</h1>
     <div class="search-box">
       <input id="search-input" type="text" placeholder="Søk f.eks. «Claas Arion», «Valtra startproblemer», «ID0251» …" autocomplete="off">
       <div id="search-results"></div>
@@ -209,6 +210,8 @@ home_body = f'''
 — for kjøretøy, maskiner, bygg og utstyr.</p>
 
 <p>Vi håper du kan få hjelp av appen, og bidra med din kunnskap, slik at andre kan få din hjelp! VEIDapp er ingenting uten din kunnskap!</p>
+
+<p>Appen er en web-app og krever ingen nedlasting. Du logger inn med din Google-konto.</p>
     
       <div class="hero-actions">
         <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv VEIDapp GRATIS</a>
