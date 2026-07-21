@@ -23,6 +23,12 @@ for fname in ("styles.css", "search.js"):
     if os.path.exists(src):
         shutil.copy(src, os.path.join(OUT, fname))
 
+if os.path.exists("images"):
+    dest = os.path.join(OUT, "images")
+    if os.path.exists(dest):
+        shutil.rmtree(dest)
+    shutil.copytree("images", dest)
+
 def slugify(s):
     s = s.strip().lower()
     repl = {"æ":"ae","ø":"o","å":"aa","é":"e","è":"e","ü":"u"}
@@ -115,7 +121,7 @@ def header(depth=0):
    
    <!-- <span class="badge">🔧</span> -->
    
-   <img src="/images/Logo.png" alt="Logo">
+   <img src="{'../'*depth}images/Logo.png" alt="Logo">
       VEIDapp · Servicebok og feildatabase
       
    </a>
@@ -255,9 +261,9 @@ home_body = f'''
 </section>
 
 <section class="demo" id="demo">
-<img src="/images/Layout.png" alt="Layout">
-<img src="/images/Vehicle.png" alt="Kjøretøykort">
-<img src="/images/Feilrapport.png" alt="Feilrapport">
+<img src="{'../'*depth}images/Layout.png" alt="Layout">
+<img src="{'../'*depth}images/Vehicle.png" alt="Kjøretøykort">
+<img src="{'../'*depth}images/Feilrapport.png" alt="Feilrapport">
 </section>
 
 <section class="section" id="merker">
