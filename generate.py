@@ -110,7 +110,16 @@ def header(depth=0):
     p = "../" * depth
     return f'''<header class="site-header">
   <div class="wrap">
-    <a class="logo" href="{p}index.html"><span class="badge">🔧</span>VEIDapp · Servicebok og feildatabase</a>
+  
+   <a class="logo" href="{p}index.html">
+   
+   <!-- <span class="badge">🔧</span> -->
+   
+   <img src="images/Logo.png" alt="Logo">
+      VEIDapp · Servicebok og feildatabase
+      
+   </a>
+   
     <nav>
       <a href="{p}index.html">Bla i merker</a>
       <a href="{p}index.html#slik-fungerer-det">Slik fungerer det</a>
@@ -243,6 +252,12 @@ home_body = f'''
       <div class="step"><div class="num">03</div><h3>Full servicehistorikk</h3><p>Loggfør servicer og få påminnelser i VEIDapp — bygget av og for de som faktisk skrur.</p></div>
     </div>
   </div>
+</section>
+
+<section claas="demo" id="demo">
+<img src="images/Layout.png" alt="Layout">
+<img src="images/Vehicle.png" alt="Kjøretøykort">
+<img src="images/Feilrapport.png" alt="Feilrapport">
 </section>
 
 <section class="section" id="merker">
