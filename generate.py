@@ -260,12 +260,6 @@ home_body = f'''
   </div>
 </section>
 
-<section class="demo" id="demo">
-<img src="{'../'*depth}images/Layout.png" alt="Layout">
-<img src="{'../'*depth}images/Vehicle.png" alt="Kjøretøykort">
-<img src="{'../'*depth}images/Feilrapport.png" alt="Feilrapport">
-</section>
-
 <section class="section" id="merker">
   <div class="wrap">
     <div class="section-head">
