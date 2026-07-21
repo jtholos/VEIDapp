@@ -214,7 +214,7 @@ home_body = f'''
 <p>Appen er en web-app og krever ingen nedlasting. Du logger inn med din Google-konto.</p>
     
       <div class="hero-actions">
-        <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv VEIDapp GRATIS</a>
+        <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv VEIDapp</a>
         <a class="btn-ghost" style="color:var(--ink);border-color:var(--line)" href="#merker">Bla i merker</a>
       </div>
       <div class="stat-row">
@@ -278,8 +278,8 @@ home_body = f'''
 <section class="cta-band">
   <div class="wrap">
     <h2>Bygg Norges beste feilsøkingsdatabase — sammen med oss</h2>
-    <p>VEIDapp er GRATIS og frivillig, og blir bedre for hver feil som deles. Logg service, følg historikk og finn løsninger raskere — for kjøretøy, maskiner, bygg og utstyr.</p>
-    <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv VEIDapp gratis →</a>
+    <p>VEIDapp er en frivillig tjeneste, og blir bedre for hver feil som deles. Logg service, følg historikk og finn løsninger raskere — for kjøretøy, maskiner, bygg og utstyr.</p>
+    <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv VEIDapp →</a>
   </div>
 </section>
 '''
@@ -345,7 +345,7 @@ for b in brands_sorted:
     <h1>{esc(b)} — feilkoder og feilsøking</h1>
     <p class="lead">{len(b_entries)} registrerte feilrapporter for {esc(b)}. {models_note}. Se symptom og feilkode her — full løsning og servicehistorikk finner du i VEIDapp.</p>
     <div class="hero-actions">
-      <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv VEIDapp gratis</a>
+      <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv VEIDapp</a>
     </div>
   </div>
 </section>
@@ -450,7 +450,7 @@ for e in entries:
     <p class="glabel">Løsning</p>
     <div class="lock">🔒 Låst innhold</div>
     <p class="gblur">{esc(truncate_words(e['losning'], 18)) or 'Løsning registrert i VEIDapp av bruker som har fikset dette selv.'}</p>
-    <p class="gcta">{solution_len}+ ord med konkret løsning, deler/komponenter og fremgangsmåte er tilgjengelig gratis i VEIDapp — sammen med servicelogg og påminnelser for dette kjøretøyet.</p[...]
+    <p class="gcta">{solution_len}+ ord med konkret løsning, deler/komponenter og fremgangsmåte er tilgjengelig i VEIDapp — sammen med servicelogg og påminnelser for dette kjøretøyet.</p[...]
     <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Se full løsning i VEIDapp</a>
   </aside>
 </div>
