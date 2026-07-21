@@ -192,6 +192,8 @@ home_body = f'''
 
 <p>VEIDapp er en frivillig drevet tjeneste, som blir bedre for hver feil som deles. Logg service, følg historikk og finn løsninger raskere 
 — for kjøretøy, maskiner, bygg og utstyr.</p>
+
+<p>Vi håper du kan få hjelp av appen, og bidra med din kunnskap, slik at andre kan få din hjelp! VEIDapp er ingenting uten din kunnskap!</p>
     
       <div class="hero-actions">
         <a class="btn-cta" href="{APP_URL}" rel="noopener" target="_blank">Prøv VEIDapp GRATIS</a>
@@ -209,8 +211,8 @@ home_body = f'''
         <div class="sp-row">
           <div class="sp-thumb">🚜</div>
           <div class="sp-info">
-            <p class="sp-reg">VN141 · fiktivt eksempel</p>
-            <p class="sp-title">2019 Valtra N141</p>
+            <p class="sp-reg">AB1234 · Rammenummer XXX</p>
+            <p class="sp-title">2012 Valtra N141</p>
             <p class="sp-service">Forrige service: 14. mars 2026</p>
             <p class="sp-service sp-due">Neste service innen: 15. september 2026</p>
           </div>
@@ -238,7 +240,7 @@ home_body = f'''
     <div class="steps">
       <div class="step"><div class="num">01</div><h3>Søk feilkode eller symptom</h3><p>Finn kjøretøyet, maskinen eller feilkoden du sliter med — på tvers av bil, traktor, skurtresker og anleggsutstyr.</p></div>
       <div class="step"><div class="num">02</div><h3>Se hva andre har opplevd</h3><p>Sammenlign symptomer og feiltyper andre brukere har registrert på samme merke og modell.</p></div>
-      <div class="step"><div class="num">03</div><h3>Full servicehistorikk</h3><p>Loggfør servicer og få påminnelser - gratis i VEIDapp — bygget av og for de som faktisk skrur.</p></div>
+      <div class="step"><div class="num">03</div><h3>Full servicehistorikk</h3><p>Loggfør servicer og få påminnelser i VEIDapp — bygget av og for de som faktisk skrur.</p></div>
     </div>
   </div>
 </section>
@@ -388,6 +390,19 @@ for e in entries:
 <div class="wrap">
   <p class="crumbs"><a href="../../index.html">Hjem</a><span class="sep">/</span><a href="index.html">{esc(e['brand'])}</a><span class="sep">/</span>{esc(e['symptom_display'])}</p>
 </div>
+
+<section class="section" id="slik-fungerer-det">
+  <div class="wrap">
+    <div class="section-head"><h2>Slik fungerer det</h2></div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h3>Søk feilkode eller symptom</h3><p>Finn kjøretøyet, maskinen eller feilkoden du sliter med — på tvers av bil, traktor, skurtresker og anleggsutstyr.</p></div>
+      <div class="step"><div class="num">02</div><h3>Se hva andre har opplevd</h3><p>Sammenlign symptomer og feiltyper andre brukere har registrert på samme merke og modell.</p></div>
+      <div class="step"><div class="num">03</div><h3>Full servicehistorikk</h3><p>Loggfør servicer og få påminnelser i VEIDapp — bygget av og for de som faktisk skrur.</p></div>
+    </div>
+  </div>
+</section>
+
+
 <div class="wrap detail-head">
   <p class="eyebrow">{esc(e['brand'])}{" · " + esc(e['model']) if e['model'] else ""}</p>
   <h1 style="font-size:2rem">{esc(e['symptom_display'])}</h1>
