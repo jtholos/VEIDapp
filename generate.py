@@ -18,7 +18,8 @@ os.makedirs(os.path.join(OUT, "merker"), exist_ok=True)
 os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
 
 # kopier statiske filer (styles.css, search.js) inn i output-mappen
-for fname in ("styles.css", "search.js"):
+for fname in ("styles.css", "search.js", "vilkar.html",
+    "personvern.html"):
     src = os.path.join(os.path.dirname(os.path.abspath(__file__)), fname)
     if os.path.exists(src):
         shutil.copy(src, os.path.join(OUT, fname))
