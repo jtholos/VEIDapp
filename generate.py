@@ -139,6 +139,7 @@ def footer(depth=0):
     return f'''<footer class="site-footer">
   <div class="wrap">
     <div>© {2026} VEIDapp · Bygget av brukere, for brukere.</div>
+    <div><a href="personvern.html">Personvern</a> · <a href="vilkar.html">Vilkår</a></div>
     <div><a href="mailto:kontakt@VEIDapp.no">kontakt@VEIDapp.no</a> · <a href="{APP_URL}" rel="noopener" target="_blank">Åpne VEIDapp</a></div>
   </div>
 </footer>'''
